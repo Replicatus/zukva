@@ -1,6 +1,13 @@
 import { useEffect } from 'react'
-import './App.css'
-
+import './styles/App.sass'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+} from 'react-router-dom';
+import { Forum } from './Pages/Forum'
 function App() {
   useEffect(() => {
     const fetchServerData = async () => {
@@ -10,9 +17,13 @@ function App() {
       console.log(data)
     }
 
-    fetchServerData()
+    // fetchServerData()
   }, [])
-  return <div className="App">Вот тут будет жить ваше приложение :)</div>
+  return <div className="App">
+    <Router>
+      <Forum/>
+    </Router>
+  </div>
 }
 
 export default App
